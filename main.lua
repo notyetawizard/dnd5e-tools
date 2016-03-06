@@ -1,4 +1,5 @@
 local math = require "math"
+local data = require "dnd5e/data"
 
 --[[
     TODO:
