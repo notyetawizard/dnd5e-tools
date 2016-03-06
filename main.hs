@@ -21,11 +21,10 @@ cha = 13
 --
 
 --Get the modifier value from a base stat
-statMod :: (Integral a, RealFrac stat) => stat -> a
 statMod stat =
-    let x = dex-10
-    in floor x/2
+    let x = (fromIntegral stat-10)/2
+    in floor x
 
--- skillCheck/Save: roll + statMod stat + prof + other
+--skillCheck/Save: roll + statMod stat + prof + other
 skillCheck roll stat bonus =
     roll + statMod stat + bonus
