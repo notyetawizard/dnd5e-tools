@@ -6,10 +6,9 @@ local mell = require "mell"
     -Dice and math
     -Read and write character saves to a sheet
     -As much math as possible, to avoid having to store as much data for each character.
-    -Avoid randomness and dice as long as possible, to maintain as much purity as possible!
     -Skills and such should be stored as *functions*, with many references to the same functions!
     -Correct randomness; it's not true right now
-    -Seperate weapons, add damage.
+    -Seperate weapons from skills, add damage.
     
     -Daemon to handle everything between map view and character sheets, one day? Perfect for multi term set ups!
 --]]
