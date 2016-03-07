@@ -16,24 +16,30 @@ local mell = require "mell"
 --]]
 
 --Curses stuff
-curses.intscr()
-curses.addcharstr("Testing this thing out.")
-curses.refresh()
-curses.getch()
-curses.endwin()
+local stdscr = curses.intscr() --start curses
+--Set up curses stuff
+curses.raw() --prevents terminal specials (ctrl-c, etc)
+curses.echo(false) --stop things from echoing back to the terminal
+--Start doing things on stdscr
+stdscr:clear()
+stdscr:addcharstr("Testing this thing out.")
+stdscr:refresh()
+stdscr:getch() --wait for user input
+--Stop!
+curses.endwin() --stop curses
 
 --
 
 --Get the modifier value from a base stat
-function statMod(stat)
+local function statMod(stat)
     return math.floor((stat-10)/2)
 end
 
-function roll(die)
+local function roll(die)
     return math.random(1,die)
 end
 
-function skillCheck(who,skill,bonus)
+local function skillCheck(who,skill,bonus)
     x = roll(20) + statMod(who.stats[who.skills[skill][1]])
     if who.skills[skill][2] == true then x = x + who.stats.prof end
     --just incase of other bonuses!
@@ -41,7 +47,7 @@ function skillCheck(who,skill,bonus)
     return x
 end
 
-function initSkill(who,name,stat)
+local function initSkill(who,name,stat)
     if who.skills == nil then who.skills = {} end
     who.skills[name] = {stat, false, 0}
 end
