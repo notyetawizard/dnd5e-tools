@@ -1,5 +1,5 @@
 local math = require "math"
-local data = require "dnd5e/data"
+local mell = require "mell"
 
 --[[
     TODO:
@@ -9,6 +9,9 @@ local data = require "dnd5e/data"
     -Avoid randomness and dice as long as possible, to maintain as much purity as possible!
     -Skills and such should be stored as *functions*, with many references to the same functions!
     -Correct randomness; it's not true right now
+    -Seperate weapons, add damage.
+    
+    -Daemon to handle everything between map view and character sheets, one day? Perfect for multi term set ups!
 --]]
 
 
@@ -33,30 +36,3 @@ function initSkill(who,name,stat)
     if who.skills == nil then who.skills = {} end
     who.skills[name] = {stat, false, 0}
 end
-    
---Temp crap here!
-me = {}
---Stats
-me.stats = {
-    str = 6,
-    dex = 15,
-    con = 12,
-    int = 16,
-    wis = 14,
-    cha = 13,
-    prof = 2
-}
---Skills (and saves)
-me.skills = {
-    strength = {"str", false, 0},
-    dexterity = {"dex", true, 0},
-    --
-    acrobatics = {"dex", true, 0},
-    animal_handling = {"wis", false, 0},
-    arcana = {"int", false, 0},
-    athletics = {"str", false, 0},
-    --
-    rapier = {"dex", true, 0}
-}
-
-initSkill(me, "deception","cha")

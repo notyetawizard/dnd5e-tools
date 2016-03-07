@@ -1,0 +1,5 @@
+races = {}
+
+races.human = {
+    
+}
