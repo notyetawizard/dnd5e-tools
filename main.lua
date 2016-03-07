@@ -1,3 +1,4 @@
+local curses = require "curses"
 local math = require "math"
 local mell = require "mell"
 
@@ -14,6 +15,14 @@ local mell = require "mell"
     -Daemon to handle everything between map view and character sheets, one day? Perfect for multi term set ups!
 --]]
 
+--Curses stuff
+curses.intscr()
+curses.addcharstr("Testing this thing out.")
+curses.refresh()
+curses.getch()
+curses.endwin()
+
+--
 
 --Get the modifier value from a base stat
 function statMod(stat)
