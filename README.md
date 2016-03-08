@@ -1,2 +1,2 @@
 # dnd5e-tools
-Some ~~haskells~~ stuff for D&amp;D
+Some curses stuff for D&amp;D
